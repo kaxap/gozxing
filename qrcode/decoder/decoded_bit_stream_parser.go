@@ -6,8 +6,8 @@ import (
 	"golang.org/x/text/encoding/simplifiedchinese"
 	"golang.org/x/text/transform"
 
-	"github.com/makiuchi-d/gozxing"
-	"github.com/makiuchi-d/gozxing/common"
+	"github.com/kaxap/gozxing"
+	"github.com/kaxap/gozxing/common"
 )
 
 const GB2312_SUBSET = 1

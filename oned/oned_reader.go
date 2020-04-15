@@ -3,7 +3,7 @@ package oned
 import (
 	"math"
 
-	"github.com/makiuchi-d/gozxing"
+	"github.com/kaxap/gozxing"
 )
 
 type RowDecoder interface {

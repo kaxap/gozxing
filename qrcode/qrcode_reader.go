@@ -1,11 +1,11 @@
 package qrcode
 
 import (
-	"github.com/makiuchi-d/gozxing"
-	"github.com/makiuchi-d/gozxing/common"
-	"github.com/makiuchi-d/gozxing/common/util"
-	"github.com/makiuchi-d/gozxing/qrcode/decoder"
-	"github.com/makiuchi-d/gozxing/qrcode/detector"
+	"github.com/kaxap/gozxing"
+	"github.com/kaxap/gozxing/common"
+	"github.com/kaxap/gozxing/common/util"
+	"github.com/kaxap/gozxing/qrcode/decoder"
+	"github.com/kaxap/gozxing/qrcode/detector"
 )
 
 type QRCodeReader struct {

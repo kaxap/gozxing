@@ -4,8 +4,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/makiuchi-d/gozxing"
-	"github.com/makiuchi-d/gozxing/testutil"
+	"github.com/kaxap/gozxing"
+	"github.com/kaxap/gozxing/testutil"
 )
 
 func TestITFReader_decodeDigit(t *testing.T) {

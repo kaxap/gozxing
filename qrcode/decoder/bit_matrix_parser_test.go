@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/makiuchi-d/gozxing"
+	"github.com/kaxap/gozxing"
 )
 
 // formatinfo = 110100101110110 = 0x6976

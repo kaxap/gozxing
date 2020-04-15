@@ -65,8 +65,8 @@ import (
 	_ "image/jpeg"
 	"os"
 
-	"github.com/makiuchi-d/gozxing"
-	"github.com/makiuchi-d/gozxing/qrcode"
+	"github.com/kaxap/gozxing"
+	"github.com/kaxap/gozxing/qrcode"
 )
 
 func main() {

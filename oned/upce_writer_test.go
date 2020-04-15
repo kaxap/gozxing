@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/makiuchi-d/gozxing"
+	"github.com/kaxap/gozxing"
 )
 
 func TestUPCEWriter_encode(t *testing.T) {

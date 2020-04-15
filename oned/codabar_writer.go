@@ -3,7 +3,7 @@ package oned
 import (
 	"strings"
 
-	"github.com/makiuchi-d/gozxing"
+	"github.com/kaxap/gozxing"
 )
 
 // This class renders CodaBar as {@code boolean[]}.

@@ -5,7 +5,7 @@ import (
 
 	"golang.org/x/text/encoding/ianaindex"
 
-	"github.com/makiuchi-d/gozxing"
+	"github.com/kaxap/gozxing"
 )
 
 func TestCharacterSetECI(t *testing.T) {

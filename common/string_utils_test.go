@@ -3,7 +3,7 @@ package common
 import (
 	"testing"
 
-	"github.com/makiuchi-d/gozxing"
+	"github.com/kaxap/gozxing"
 )
 
 func TestGessEncodingWithHint(t *testing.T) {

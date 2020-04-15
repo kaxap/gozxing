@@ -1,9 +1,9 @@
 package detector
 
 import (
-	"github.com/makiuchi-d/gozxing"
-	"github.com/makiuchi-d/gozxing/common"
-	cdetector "github.com/makiuchi-d/gozxing/common/detector"
+	"github.com/kaxap/gozxing"
+	"github.com/kaxap/gozxing/common"
+	cdetector "github.com/kaxap/gozxing/common/detector"
 )
 
 type Detector struct {

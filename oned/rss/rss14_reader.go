@@ -3,9 +3,9 @@ package rss
 import (
 	"strconv"
 
-	"github.com/makiuchi-d/gozxing"
-	"github.com/makiuchi-d/gozxing/common/util"
-	"github.com/makiuchi-d/gozxing/oned"
+	"github.com/kaxap/gozxing"
+	"github.com/kaxap/gozxing/common/util"
+	"github.com/kaxap/gozxing/oned"
 )
 
 // Decodes RSS-14, including truncated and stacked variants. See ISO/IEC 24724:2006.

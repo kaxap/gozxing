@@ -1,9 +1,9 @@
 package decoder
 
 import (
-	"github.com/makiuchi-d/gozxing"
-	"github.com/makiuchi-d/gozxing/common"
-	"github.com/makiuchi-d/gozxing/common/reedsolomon"
+	"github.com/kaxap/gozxing"
+	"github.com/kaxap/gozxing/common"
+	"github.com/kaxap/gozxing/common/reedsolomon"
 )
 
 type Decoder struct {

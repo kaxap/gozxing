@@ -1,7 +1,7 @@
 package multi
 
 import (
-	"github.com/makiuchi-d/gozxing"
+	"github.com/kaxap/gozxing"
 )
 
 // MultipleBarcodeReader Implementation of this interface attempt to read several barcodes from one image.

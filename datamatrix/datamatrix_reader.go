@@ -1,10 +1,10 @@
 package datamatrix
 
 import (
-	"github.com/makiuchi-d/gozxing"
-	"github.com/makiuchi-d/gozxing/common"
-	"github.com/makiuchi-d/gozxing/datamatrix/decoder"
-	"github.com/makiuchi-d/gozxing/datamatrix/detector"
+	"github.com/kaxap/gozxing"
+	"github.com/kaxap/gozxing/common"
+	"github.com/kaxap/gozxing/datamatrix/decoder"
+	"github.com/kaxap/gozxing/datamatrix/detector"
 )
 
 var (

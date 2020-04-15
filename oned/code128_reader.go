@@ -3,7 +3,7 @@ package oned
 // Decodes Code 128 barcodes.
 
 import (
-	"github.com/makiuchi-d/gozxing"
+	"github.com/kaxap/gozxing"
 )
 
 var code128CODE_PATTERNS = [][]int{
