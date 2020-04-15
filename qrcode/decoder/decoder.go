@@ -16,20 +16,20 @@ func NewDecoder() *Decoder {
 	}
 }
 
-func (this *Decoder) DecodeBoolMapWithoutHint(image [][]bool) (*common.DecoderResult, error) {
-	return this.DecodeBoolMap(image, nil)
+func (this *Decoder) DecodeBoolMapWithoutHint(image [][]bool, class byte) (*common.DecoderResult, error) {
+	return this.DecodeBoolMap(image, nil, class)
 }
 
-func (this *Decoder) DecodeBoolMap(image [][]bool, hints map[gozxing.DecodeHintType]interface{}) (*common.DecoderResult, error) {
+func (this *Decoder) DecodeBoolMap(image [][]bool, hints map[gozxing.DecodeHintType]interface{}, class byte) (*common.DecoderResult, error) {
 	bits, e := gozxing.ParseBoolMapToBitMatrix(image)
 	if e != nil {
 		return nil, e
 	}
-	return this.Decode(bits, hints)
+	return this.Decode(bits, hints, class)
 }
 
-func (this *Decoder) DecodeWithoutHint(bits *gozxing.BitMatrix) (*common.DecoderResult, error) {
-	return this.Decode(bits, nil)
+func (this *Decoder) DecodeWithoutHint(bits *gozxing.BitMatrix, class byte) (*common.DecoderResult, error) {
+	return this.Decode(bits, nil, class)
 }
 
 func (this *Decoder) Decode(bits *gozxing.BitMatrix, hints map[gozxing.DecodeHintType]interface{}, class byte) (*common.DecoderResult, error) {
