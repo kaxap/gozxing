@@ -26,7 +26,7 @@ func (this *QRCodeReader) DecodeWithoutHints(image *gozxing.BinaryBitmap) (*gozx
 	return this.Decode(image, nil)
 }
 
-func (this *QRCodeReader) Decode(image *gozxing.BinaryBitmap, hints map[gozxing.DecodeHintType]interface{}) (*gozxing.Result, error) {
+func (this *QRCodeReader) Decode(image *gozxing.BinaryBitmap, hints map[gozxing.DecodeHintType]interface{}, class byte) (*gozxing.Result, error) {
 	var decoderResult *common.DecoderResult
 	var points []gozxing.ResultPoint
 
@@ -39,7 +39,7 @@ func (this *QRCodeReader) Decode(image *gozxing.BinaryBitmap, hints map[gozxing.
 		if e != nil {
 			return nil, e
 		}
-		decoderResult, e = this.decoder.Decode(bits, hints)
+		decoderResult, e = this.decoder.Decode(bits, hints, class)
 		if e != nil {
 			return nil, e
 		}
@@ -49,7 +49,7 @@ func (this *QRCodeReader) Decode(image *gozxing.BinaryBitmap, hints map[gozxing.
 		if e != nil {
 			return nil, e
 		}
-		decoderResult, e = this.decoder.Decode(detectorResult.GetBits(), hints)
+		decoderResult, e = this.decoder.Decode(detectorResult.GetBits(), hints, class)
 		if e != nil {
 			return nil, e
 		}
