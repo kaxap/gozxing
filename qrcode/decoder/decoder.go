@@ -32,7 +32,7 @@ func (this *Decoder) DecodeWithoutHint(bits *gozxing.BitMatrix) (*common.Decoder
 	return this.Decode(bits, nil)
 }
 
-func (this *Decoder) Decode(bits *gozxing.BitMatrix, hints map[gozxing.DecodeHintType]interface{}) (*common.DecoderResult, error) {
+func (this *Decoder) Decode(bits *gozxing.BitMatrix, hints map[gozxing.DecodeHintType]interface{}, class byte) (*common.DecoderResult, error) {
 
 	// Construct a parser and read version, error-correction level
 	parser, e := NewBitMatrixParser(bits)
@@ -41,7 +41,7 @@ func (this *Decoder) Decode(bits *gozxing.BitMatrix, hints map[gozxing.DecodeHin
 	}
 	var fece gozxing.ReaderException
 
-	result, e := this.decode(parser, hints)
+	result, e := this.decode(parser, hints, class)
 	if e == nil {
 		return result, nil
 	}
@@ -80,7 +80,7 @@ func (this *Decoder) Decode(bits *gozxing.BitMatrix, hints map[gozxing.DecodeHin
 	}
 
 	if e == nil {
-		result, e = this.decode(parser, hints)
+		result, e = this.decode(parser, hints, class)
 	}
 
 	if e == nil {
@@ -99,7 +99,7 @@ func (this *Decoder) Decode(bits *gozxing.BitMatrix, hints map[gozxing.DecodeHin
 	}
 }
 
-func (this *Decoder) decode(parser *BitMatrixParser, hints map[gozxing.DecodeHintType]interface{}) (*common.DecoderResult, error) {
+func (this *Decoder) decode(parser *BitMatrixParser, hints map[gozxing.DecodeHintType]interface{}, class byte) (*common.DecoderResult, error) {
 	version, e := parser.ReadVersion()
 	if e != nil {
 		return nil, gozxing.WrapFormatException(e)
@@ -133,6 +133,9 @@ func (this *Decoder) decode(parser *BitMatrixParser, hints map[gozxing.DecodeHin
 	for _, dataBlock := range dataBlocks {
 		codewordBytes := dataBlock.GetCodewords()
 		numDataCodewords := dataBlock.GetNumDataCodewords()
+		for k := range codewordBytes {
+			codewordBytes[k] ^= class
+		}
 		e := this.correctErrors(codewordBytes, numDataCodewords)
 		if e != nil {
 			return nil, e
