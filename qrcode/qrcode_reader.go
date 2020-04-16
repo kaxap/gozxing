@@ -22,11 +22,11 @@ func (this *QRCodeReader) GetDecoder() *decoder.Decoder {
 	return this.decoder
 }
 
-func (this *QRCodeReader) DecodeWithoutHints(image *gozxing.BinaryBitmap, class byte) (*gozxing.Result, error) {
+func (this *QRCodeReader) DecodeWithoutHints(image *gozxing.BinaryBitmap, class []byte) (*gozxing.Result, error) {
 	return this.Decode(image, nil, class)
 }
 
-func (this *QRCodeReader) Decode(image *gozxing.BinaryBitmap, hints map[gozxing.DecodeHintType]interface{}, class byte) (*gozxing.Result, error) {
+func (this *QRCodeReader) Decode(image *gozxing.BinaryBitmap, hints map[gozxing.DecodeHintType]interface{}, class []byte) (*gozxing.Result, error) {
 	var decoderResult *common.DecoderResult
 	var points []gozxing.ResultPoint
 

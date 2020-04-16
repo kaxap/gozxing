@@ -16,11 +16,11 @@ func NewDecoder() *Decoder {
 	}
 }
 
-func (this *Decoder) DecodeBoolMapWithoutHint(image [][]bool, class byte) (*common.DecoderResult, error) {
+func (this *Decoder) DecodeBoolMapWithoutHint(image [][]bool, class []byte) (*common.DecoderResult, error) {
 	return this.DecodeBoolMap(image, nil, class)
 }
 
-func (this *Decoder) DecodeBoolMap(image [][]bool, hints map[gozxing.DecodeHintType]interface{}, class byte) (*common.DecoderResult, error) {
+func (this *Decoder) DecodeBoolMap(image [][]bool, hints map[gozxing.DecodeHintType]interface{}, class []byte) (*common.DecoderResult, error) {
 	bits, e := gozxing.ParseBoolMapToBitMatrix(image)
 	if e != nil {
 		return nil, e
@@ -28,11 +28,11 @@ func (this *Decoder) DecodeBoolMap(image [][]bool, hints map[gozxing.DecodeHintT
 	return this.Decode(bits, hints, class)
 }
 
-func (this *Decoder) DecodeWithoutHint(bits *gozxing.BitMatrix, class byte) (*common.DecoderResult, error) {
+func (this *Decoder) DecodeWithoutHint(bits *gozxing.BitMatrix, class []byte) (*common.DecoderResult, error) {
 	return this.Decode(bits, nil, class)
 }
 
-func (this *Decoder) Decode(bits *gozxing.BitMatrix, hints map[gozxing.DecodeHintType]interface{}, class byte) (*common.DecoderResult, error) {
+func (this *Decoder) Decode(bits *gozxing.BitMatrix, hints map[gozxing.DecodeHintType]interface{}, class []byte) (*common.DecoderResult, error) {
 
 	// Construct a parser and read version, error-correction level
 	parser, e := NewBitMatrixParser(bits)
@@ -99,7 +99,7 @@ func (this *Decoder) Decode(bits *gozxing.BitMatrix, hints map[gozxing.DecodeHin
 	}
 }
 
-func (this *Decoder) decode(parser *BitMatrixParser, hints map[gozxing.DecodeHintType]interface{}, class byte) (*common.DecoderResult, error) {
+func (this *Decoder) decode(parser *BitMatrixParser, hints map[gozxing.DecodeHintType]interface{}, class []byte) (*common.DecoderResult, error) {
 	version, e := parser.ReadVersion()
 	if e != nil {
 		return nil, gozxing.WrapFormatException(e)
@@ -134,7 +134,7 @@ func (this *Decoder) decode(parser *BitMatrixParser, hints map[gozxing.DecodeHin
 		codewordBytes := dataBlock.GetCodewords()
 		numDataCodewords := dataBlock.GetNumDataCodewords()
 		for k := range codewordBytes {
-			codewordBytes[k] ^= class
+			codewordBytes[k] ^= class[k%len(class)]
 		}
 		e := this.correctErrors(codewordBytes, numDataCodewords)
 		if e != nil {

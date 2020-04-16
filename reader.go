@@ -10,7 +10,7 @@ type Reader interface {
 	 * @throws ChecksumException if a potential barcode is found but does not pass its checksum
 	 * @throws FormatException if a potential barcode is found but format is invalid
 	 */
-	DecodeWithoutHints(image *BinaryBitmap, class byte) (*Result, error)
+	DecodeWithoutHints(image *BinaryBitmap, class []byte) (*Result, error)
 
 	/**
 	 * Locates and decodes a barcode in some format within an image. This method also accepts
@@ -26,7 +26,7 @@ type Reader interface {
 	 * @throws ChecksumException if a potential barcode is found but does not pass its checksum
 	 * @throws FormatException if a potential barcode is found but format is invalid
 	 */
-	Decode(image *BinaryBitmap, hints map[DecodeHintType]interface{}, class byte) (*Result, error)
+	Decode(image *BinaryBitmap, hints map[DecodeHintType]interface{}, class []byte) (*Result, error)
 
 	/**
 	 * Resets any internal state the implementation has after a decode, to prepare it
